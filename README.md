@@ -34,8 +34,12 @@ graph LR
     I -->|TC<br/>UDP| A
 ```
 
-# Core Components
+# Example Runtime Behavior
+The following excerpt shows the system reacting autonomously to a low-battery condition executing a safety procedure.
+<img width="1610" height="383" alt="Screenshot from 2026-01-17 15-13-39" src="https://github.com/user-attachments/assets/a96bb449-4ef5-46d8-bc76-f667169914b4" />
 
+
+# Core Components
 ## 1. Satellite Simulator
 
 📁 `mcs/sat_simulator/`
@@ -66,8 +70,7 @@ graph LR
 
 ## 4. Monitoring & Alerting
 
-📁 `mcs/tm_ingestor/monitoring`
-📁 `mcs/tm_ingestor/alerts`
+📁 `mcs/tm_ingestor/monitoring` `mcs/tm_ingestor/alerts`
 
 - Monitoring rules are data-driven (JSON)
 - Rule evaluation is stateless
