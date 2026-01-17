@@ -1,0 +1,20 @@
+[
+  {
+    "id": "HK_BATT_LOW",
+    "packet_type": "HousekeepingTM",
+    "field": "battery_voltage_v",
+    "operator": "<",
+    "threshold": 3.3,
+    "severity": "CRITICAL",
+    "enabled": true
+  },
+  {
+    "id": "HK_TEMP_HIGH",
+    "packet_type": "HousekeepingTM",
+    "field": "temperature_c",
+    "operator": ">",
+    "threshold": 50.0,
+    "severity": "WARNING",
+    "enabled": true
+  }
+]

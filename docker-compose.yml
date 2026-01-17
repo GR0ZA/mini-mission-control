@@ -1,0 +1,34 @@
+services:
+  tm-ingestor:
+    build:
+      context: ./mcs
+      dockerfile: tm_ingestor/Dockerfile
+    volumes:
+      - telemetry_data:/data
+    environment:
+      - DB_PATH=/data/telemetry.db
+    ports:
+      - "5005:5005/udp"
+
+  sat-simulator:
+    build:
+      context: ./mcs
+      dockerfile: sat_simulator/Dockerfile
+    depends_on:
+      - tm-ingestor
+
+  api:
+    build:
+      context: ./mcs
+      dockerfile: api/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - telemetry_data:/data
+    environment:
+      - DB_PATH=/data/telemetry.db
+    depends_on:
+      - tm-ingestor
+
+volumes:
+  telemetry_data:

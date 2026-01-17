@@ -1,0 +1,13 @@
+{
+  "procedures": [
+    {
+      "id": "SAFE_MODE_ON_LOW_BATTERY",
+      "trigger": { "alert_id": "HK_BATT_LOW" },
+      "steps": [
+        { "send_tc": { "command": "SET_MODE", "param": "SAFE" } },
+        { "wait": 3 },
+        { "verify": { "telemetry": { "field": "mode", "equals": "SAFE" } } }
+      ]
+    }
+  ]
+}
