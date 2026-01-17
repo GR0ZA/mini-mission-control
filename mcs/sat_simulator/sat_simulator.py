@@ -84,10 +84,10 @@ def send_tc_verification(tc_seq: int, status: TcVerStatus):
         seq,
         int(time.time()),
         tc_seq,
-        status.value
+        int(status)
     )
     send_packet(payload)
-    print(f"[TM] TC_VER tc_seq={tc_seq} status={status.name}")
+    print(f"[TM] TC_VER tc_seq={tc_seq} status={status}")
 
 
 # ===============================
@@ -147,4 +147,4 @@ while True:
         send_attitude()
 
     seq = (seq + 1) % 256
-    time.sleep(3)
+    time.sleep(1)
